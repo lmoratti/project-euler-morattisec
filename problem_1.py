@@ -1,5 +1,6 @@
-from helper.problem import Problem 
 import itertools
+from helper.problem import Problem 
+
 
 # Multiples of 3 or 5
 
@@ -60,6 +61,7 @@ def solution_3():
 
 problem = Problem(expected_answer=233168)
 module  = __import__(__name__)
+#imports all functions that are named "solution_*"
 problem.import_solutions(module)
 problem.time_solve()
 problem.announce_results()
