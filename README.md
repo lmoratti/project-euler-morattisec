@@ -29,8 +29,8 @@ problem.announce_results()
 
 Ouput:
 ```
-[0.0019543999806046486, 0.0023890999145805836, 0.17309969989582896]
-solution_2 was 1.222421171863422x faster than previous result and was valid.
-solution_3 was 72.45393917575747x faster than previous result and was valid.
-solution_2 was 88.56922923335054x faster than the worst result (solution_1).
+[0.0010319000575691462, 0.0018933999817818403, 0.17959799990057945]
+solution_2 was 1.8348675997190418x faster than previous result and was valid.
+solution_3 was 94.85475949543604x faster than previous result and was valid.
+solution_2 was 174.04592487731773x faster than the worst result (solution_1).
 ```
