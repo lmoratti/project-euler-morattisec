@@ -4,6 +4,8 @@ My solves for Project Euler.
 I also made a framework for evaluating the speed of the solutions for a given problem. Using a sample size of 1000 runs for each solution.
 
 This allows dynamically importing multiple solutions that include "solution_" in their defined name.
+
+Baseline for a new problem_x.py file:
 ```
 from helper.problem import Problem 
 
