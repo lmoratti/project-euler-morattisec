@@ -1,5 +1,4 @@
 from helper.problem import Problem 
-import timeit
 import itertools
 
 # Multiples of 3 or 5
@@ -21,7 +20,7 @@ def solution_1():
     for number in range(1,1000):
         if is_multiple_of(number, multiples):
             sum += number
-    #print(sum)
+    return sum
     
 def solution_2():
     ''' This solution is O(M) '''
@@ -39,7 +38,7 @@ def solution_2():
 
     sum -= sum_range_with_multiple(n, (multiples[0] * multiples[1]) )
 
-    #print(sum)
+    return sum
 
 def solution_3():
     def sum_range_with_multiple(n: int, m: tuple) -> int:
@@ -56,16 +55,13 @@ def solution_3():
     for i in range(1, len(B)+ 1) :
         for c in itertools.combinations(B, i):
             s += (-(-1) ** i )* sum_range_with_multiple(n, c)
-    #print(s)
+    return s
 
 
-problem = Problem()
-problem.add_solution(solution_1)
-problem.add_solution(solution_2)
-problem.add_solution(solution_3)
+problem = Problem(expected_answer=233168)
+module  = __import__(__name__)
+problem.import_solutions(module)
 problem.time_solve()
 problem.announce_results()
 
 
-# 1. Set "result" to 1
-# 2. For each `b in M`, multiply "result" by "b" and store in result
