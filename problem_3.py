@@ -19,8 +19,7 @@ def solution_1():
             if is_prime(i): # is also prime
                 f = i
                 break
-    
-    print(f)
+
     return f
     
 def solution_2():
@@ -43,7 +42,7 @@ def solution_2():
             x = g(x)
             y = g(g(y))
             d = gcd(abs(x - y), n)
-        
+
         return d
     
     class Random:
@@ -108,7 +107,10 @@ def solution_2():
 
     
     def is_prime(n: int) -> bool:
-        small_primes = [2,3,5,7,11,13,17,19,23,29,31,37,41]
+        small_primes = {2,3,5,7,11,13,17,19,23,29,31,37,41}
+
+        if n in small_primes:
+            return True
 
         for p in small_primes:
             if n % p == 0:
@@ -122,32 +124,29 @@ def solution_2():
         else:
             all_factors = set()
             current = n
-            while current != 1:
+
+            while not is_prime(current):
                 while True:
-                    d = thanks_mr_pollard(n)
+                    d = thanks_mr_pollard(current)
                     if d != n:
                         break
+
                 all_factors = all_factors.union(factor(d))
                 current //= d
+
+            all_factors.add(current)
             return all_factors
         
     n = 600851475143
     s = factor(n)
     l = sorted(list(s))
-    print(l)
     return l[-1]
 
 
     
-    
-
-# def solution_3():
-#     # code here
-#     return answer
-solution_2()
-# problem = Problem(expected_answer=0)
-# module  = __import__(__name__)
-# imports all functions that are named "solution_*"
-# problem.import_solutions(module)
-# problem.time_solve()
-# problem.announce_results()
+problem = Problem(expected_answer=6857)
+module  = __import__(__name__)
+#imports all functions that are named "solution_*"
+problem.import_solutions(module)
+problem.time_solve()
+problem.announce_results()
