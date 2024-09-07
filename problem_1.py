@@ -15,33 +15,34 @@ def solution_1():
                 return True
         return False
 
-    sum: int  = 0
-    multiples = [3, 5]
+    s: int  = 0
+    m = [3, 5]
 
     for number in range(1,1000):
-        if is_multiple_of(number, multiples):
-            sum += number
-    return sum
+        if is_multiple_of(number, m):
+            s += number
+
+    return s
     
 def solution_2():
-    ''' This solution is O(M) '''
+    ''' This solution is O(M). It is custom fit to 3,5 as multiples per the question. It is also the fastest. '''
     def sum_range_with_multiple(n: int, m: int) -> int:
         e  = (n - 1) // m
     
         return (e ** 2 + e ) // 2 * m
 
-    sum: int  = 0
-    multiples = [3, 5]
+    s: int  = 0
+    m = [3, 5]
     n = 1000
 
-    for m in multiples:
-        sum += sum_range_with_multiple(n, m)
+    for m in m:
+        s += sum_range_with_multiple(n, m)
+    s -= sum_range_with_multiple(n, (m[0] * m[1]) )
 
-    sum -= sum_range_with_multiple(n, (multiples[0] * multiples[1]) )
-
-    return sum
+    return s
 
 def solution_3():
+    ''' This solution is O(M). However, it was genericized to work with any number of multiples (m). '''
     def sum_range_with_multiple(n: int, m: tuple) -> int:
         r = 1
         for i in m:
@@ -56,6 +57,7 @@ def solution_3():
     for i in range(1, len(B)+ 1) :
         for c in itertools.combinations(B, i):
             s += (-(-1) ** i )* sum_range_with_multiple(n, c)
+            
     return s
 
 
